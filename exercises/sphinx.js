@@ -14,15 +14,17 @@ class Sphinx {
   attemptAnswer(answer) {
     for (var i = 0; i < this.riddles.length; i++) {
     if (answer === this.riddles[i].answer) {
-      this.riddles.pop();
+      this.riddles.splice(i, 1); 
+    if (this.riddles.length === 0) {
+      return 'PSSSSSSS THIS HAS NEVER HAPPENED, HOW DID YOU KNOW THE ANSWER WAS \"' + answer + '"\???'
+    }
       return 'That wasn\'t that hard, I bet you don\'t get the next one';
       }
     }
-    this.heroesEaten ++
-    if (this.riddles.length > 0) {
-      return 'PSSSSSSS THIS HAS NEVER HAPPENED, HOW DID YOU KNOW THE ANSWER WAS \"' + answer + '"\???'
+    if (this.riddles.length >0) {
+      this.heroesEaten ++
     }
-}
+  }
 }
 
 module.exports = Sphinx
